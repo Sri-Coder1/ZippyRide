@@ -34,16 +34,10 @@
 
   <!-- Navbar -->
   <header class="flex justify-between items-center px-6 py-4 shadow-md bg-white sticky top-0 z-20">
-    <div class="flex items-center space-x-3">
-      <!-- Try multiple image sources with fallbacks -->
-      <div class="h-10 w-10 rounded-logo flex items-center justify-center bg-navy-blue text-white font-bold">
-        <!-- First try local file -->
-        <img src="zr-logo.png" alt="ZippyRide" class="h-full w-full hidden" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block'">
-        <!-- Then try images folder -->
-        <img src="images/zr-logo.png" alt="ZippyRide" class="h-full w-full hidden" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block'">
-        <!-- Fallback text logo -->
-        <span id="text-logo" style="display: none;">ZR</span>
-      </div>
+     <div class="flex items-center space-x-3">
+       <img src="./images/zr-logo.png" alt="ZippyRide" class="h-10 w-10 rounded-logo">
+      <span class="text-xl font-bold navy-blue">ZippyRide</span>
+    </div>
       <span class="text-xl font-bold navy-blue">ZippyRide</span>
     </div>
     <div class="space-x-4">

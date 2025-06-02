@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Active Rides | ZippyRide</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .rounded-logo {
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #232844;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navy-blue {
+      color: #232844;
+    }
+    .bg-navy-blue {
+      background-color: #232844;
+    }
+    .hover-bg-navy-blue:hover {
+      background-color: #1a2036;
+    }
+    .ride-card {
+      transition: all 0.3s ease;
+    }
+    .ride-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 min-h-screen">
+
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 shadow-md bg-white sticky top-0 z-20">
+    <div class="flex items-center space-x-3">
+      <img src="E:\Ankith\projects\Commute_Connect\ZR logo.png" alt="ZippyRide" class="h-10 w-10 rounded-logo">
+      <span class="text-xl font-bold navy-blue">ZippyRide</span>
+    </div>
+    <div class="space-x-4">
+      <a href="publishride.html" class="text-white bg-navy-blue hover:bg-navy-blue-700 px-4 py-2 rounded-lg inline-block transition duration-200 transform hover:scale-105">
+        Publish a Ride
+      </a>
+    </div>
+  </header>
+
+  <!-- Active Rides Section -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex justify-between items-center mb-8">
+      <h2 id="rides-heading" class="text-2xl md:text-3xl font-bold navy-blue">Active Rides</h2>
+      <div class="flex space-x-2">
+        <button class="px-4 py-2 bg-blue-50 text-navy-blue rounded-lg">Filter</button>
+        <button class="px-4 py-2 bg-blue-50 text-navy-blue rounded-lg">Sort</button>
+      </div>
+    </div>
+
+    <!-- Ride Cards -->
+    <div id="rides-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Ride cards will be dynamically inserted here -->
+    </div>
+
+    <!-- View More Button -->
+    <div class="text-center mt-10">
+      <button class="px-6 py-2 border border-navy-blue text-navy-blue rounded-lg hover:bg-navy-blue hover:text-white transition duration-200">
+        View More Rides
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-blue text-white py-8 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-semibold mb-4">About ZippyRide</h3>
+        <p class="text-sm text-blue-100">Connecting commuters across campuses and corporations for affordable, convenient travel.</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm text-blue-100">
+          <li><a href="#" class="hover:text-white">How it works</a></li>
+          <li><a href="#" class="hover:text-white">Safety</a></li>
+          <li><a href="#" class="hover:text-white">Help Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <p class="text-sm text-blue-100">support@zippyride.com</p>
+        <p class="text-sm text-blue-100">+91 9876543210</p>
+      </div>
+    </div>
+    <div class="border-t border-blue-800 mt-8 pt-6 text-sm text-blue-200 text-center">
+      &copy; 2023 ZippyRide. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Function to parse URL parameters
+    function getUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        pickup: params.get('pickup') || 'Bangalore',
+        drop: params.get('drop') || 'Chennai',
+        date: params.get('date') || 'Today',
+        time: params.get('time') || ''
+      };
+    }
+
+    // Function to update the page based on search parameters
+    function updateRidesDisplay() {
+      const params = getUrlParams();
+      const heading = document.getElementById('rides-heading');
+      const ridesContainer = document.getElementById('rides-container');
+      
+      // Update heading
+      heading.textContent = `Active Rides from ${params.pickup} to ${params.drop}`;
+      
+      // Sample ride data with corrected image paths
+      const rides = [
+        {
+          id: 1,
+          from: params.pickup,
+          to: params.drop,
+          date: params.date === 'Today' ? 'Today, 8:00 AM' : 
+                params.date === 'Tomorrow' ? 'Tomorrow, 8:00 AM' : 
+                `${params.date}, 8:00 AM`,
+          seats: 1,
+          driver: {
+            name: 'Rahul Sharma',
+            image: "E:\\Ankith\\projects\\Commute_Connect\\rahul sharma.jpg",
+            rating: 4,
+            reviews: 24
+          },
+          car: 'Hyundai Creta',
+          genderPref: 'No preference'
+        },
+        {
+          id: 2,
+          from: params.pickup,
+          to: params.drop,
+          date: params.date === 'Today' ? 'Today, 6:30 PM' : 
+                params.date === 'Tomorrow' ? 'Tomorrow, 6:30 PM' : 
+                `${params.date}, 6:30 PM`,
+          seats: 2,
+          driver: {
+            name: 'Priya Patil',
+            image: "E:\\Ankith\\projects\\Commute_Connect\\priya patil.jpg",
+            rating: 5,
+            reviews: 37
+          },
+          car: 'Maruti Swift',
+          genderPref: 'Female only'
+        },
+        {
+          id: 3,
+          from: params.pickup,
+          to: params.drop,
+          date: params.date === 'Today' ? 'Today, 3:00 PM' : 
+                params.date === 'Tomorrow' ? 'Tomorrow, 3:00 PM' : 
+                `${params.date}, 3:00 PM`,
+          seats: 3,
+          driver: {
+            name: 'Rama Rao',
+            image: "E:\\Ankith\\projects\\Commute_Connect\\NTR.jpg",
+            rating: 4,
+            reviews: 18
+          },
+          car: 'Toyota Innova',
+          genderPref: 'No preference'
+        }
+      ];
+      
+      // Filter rides by time if specified
+      const filteredRides = params.time ? 
+        rides.filter(ride => ride.date.includes(params.time > '12:00' ? 'PM' : 'AM')) : 
+        rides;
+      
+      // Clear existing rides
+      ridesContainer.innerHTML = '';
+      
+      // Add filtered rides to the page
+      filteredRides.forEach(ride => {
+        const rideCard = document.createElement('div');
+        rideCard.className = 'bg-white rounded-xl shadow-md overflow-hidden ride-card';
+        rideCard.innerHTML = `
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-semibold navy-blue">${ride.from} → ${ride.to}</h3>
+                <p class="text-gray-600 text-sm mt-1">${ride.date}</p>
+              </div>
+              <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">${ride.seats} seat${ride.seats > 1 ? 's' : ''} left</span>
+            </div>
+            
+            <div class="flex items-center mt-4">
+              <img src="${ride.driver.image}" alt="Driver" class="w-10 h-10 rounded-full border-2 border-white shadow">
+              <div class="ml-3">
+                <p class="font-medium">${ride.driver.name}</p>
+                <div class="flex items-center text-yellow-500 text-sm">
+                  ${'★'.repeat(ride.driver.rating)}${'☆'.repeat(5 - ride.driver.rating)} <span class="text-gray-500 ml-1">(${ride.driver.reviews})</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 mt-6">
+              <div>
+                <p class="text-gray-500 text-sm">Car</p>
+                <p class="font-medium">${ride.car}</p>
+              </div>
+              <div>
+                <p class="text-gray-500 text-sm">Gender Pref.</p>
+                <p class="font-medium">${ride.genderPref}</p>
+              </div>
+            </div>
+            
+            <button class="w-full mt-6 bg-navy-blue text-white py-2 rounded-lg hover:bg-[#1a2036] transition duration-200">
+              Join Ride
+            </button>
+          </div>
+        `;
+        ridesContainer.appendChild(rideCard);
+      });
+      
+      // Show message if no rides found
+      if (filteredRides.length === 0) {
+        ridesContainer.innerHTML = `
+          <div class="col-span-full text-center py-12">
+            <h3 class="text-xl font-medium text-gray-700">No rides found for your criteria</h3>
+            <p class="mt-2 text-gray-500">Try adjusting your search parameters or publish a ride yourself.</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Update the display when the page loads
+    document.addEventListener('DOMContentLoaded', updateRidesDisplay);
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZippyRide Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .rounded-logo {
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #232844;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .search-section {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .navy-blue {
+      color: #232844;
+    }
+    .bg-navy-blue {
+      background-color: #232844;
+    }
+    .hover-bg-navy-blue:hover {
+      background-color: #1a2036;
+    }
+    .border-navy-blue {
+      border-color: #232844;
+    }
+    .focus-ring-navy-blue:focus {
+      ring-color: #232844;
+      border-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 min-h-screen">
+
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 shadow-md bg-white sticky top-0 z-20">
+    <div class="flex items-center space-x-3">
+      <img src="E:\Ankith\projects\Commute_Connect\ZR logo.png" alt="ZippyRide" class="h-10 w-10 rounded-logo">
+      <span class="text-xl font-bold navy-blue">ZippyRide</span>
+    </div>
+    <div class="space-x-4">
+      <a href="publishRide.html" class="text-white bg-navy-blue hover:bg-navy-blue-700 px-4 py-2 rounded-lg inline-block transition duration-200 transform hover:scale-105">
+        Publish a Ride
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-50 text-center py-12 px-4">
+    <h1 class="text-3xl md:text-5xl font-bold navy-blue">Your pick of rides at low prices</h1>
+    <p class="mt-4 text-gray-700 max-w-2xl mx-auto">Carpool with confidence on ZippyRide - connecting commuters across campuses and corporations</p>
+  </section>
+
+  <!-- Search Form -->
+  <section class="bg-white search-section mx-auto max-w-5xl p-6 rounded-lg mt-[-2rem] z-10 relative">
+    <form id="searchForm" class="grid grid-cols-1 md:grid-cols-6 gap-4">
+      <input type="text" id="fromLocation" placeholder="Leaving from" class="p-3 border border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-[#232844] focus:border-transparent" required>
+      <input type="text" id="toLocation" placeholder="Going to" class="p-3 border border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-[#232844] focus:border-transparent" required>
+      <input type="date" id="travelDate" class="p-3 border border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-[#232844] focus:border-transparent" required>
+      <select id="travelTime" class="p-3 border border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-[#232844] focus:border-transparent">
+        <option value="">Any time</option>
+        <option value="06:00">6:00 AM</option>
+        <option value="08:00">8:00 AM</option>
+        <option value="12:00">12:00 PM</option>
+        <option value="15:00">3:00 PM</option>
+        <option value="18:00">6:00 PM</option>
+        <option value="20:00">8:00 PM</option>
+      </select>
+      <select id="passengers" class="p-3 border border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-[#232844] focus:border-transparent">
+        <option value="1">1 passenger</option>
+        <option value="2">2 passengers</option>
+        <option value="3">3 passengers</option>
+      </select>
+      <button type="submit" class="bg-navy-blue text-white rounded-lg px-4 py-3 hover:bg-[#1a2036] w-full transition duration-200 transform hover:scale-105">
+        Search Rides
+      </button>
+    </form>
+  </section>
+
+  <!-- Highlights -->
+  <section class="mt-16 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+        <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 navy-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold navy-blue text-center">Your pick of rides at low prices</h3>
+        <p class="text-sm text-gray-600 mt-2 text-center">No matter where you're going, ZippyRide gets you there affordably.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+        <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 navy-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold navy-blue text-center">Trust who you travel with</h3>
+        <p class="text-sm text-gray-600 mt-2 text-center">Profiles, reviews, and ratings help you choose who to ride with.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+        <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 navy-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold navy-blue text-center">Scroll, tap, go!</h3>
+        <p class="text-sm text-gray-600 mt-2 text-center">Booking your next ride has never been this smooth.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const fromLocation = document.getElementById('fromLocation').value;
+      const toLocation = document.getElementById('toLocation').value;
+      const travelDate = document.getElementById('travelDate').value;
+      const travelTime = document.getElementById('travelTime').value;
+      const passengers = document.getElementById('passengers').value;
+      
+      // Format date for display
+      const today = new Date();
+      const tomorrow = new Date();
+      tomorrow.setDate(today.getDate() + 1);
+      
+      const inputDate = new Date(travelDate);
+      let displayDate;
+      
+      if (inputDate.toDateString() === today.toDateString()) {
+        displayDate = 'Today';
+      } else if (inputDate.toDateString() === tomorrow.toDateString()) {
+        displayDate = 'Tomorrow';
+      } else {
+        displayDate = inputDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
+      
+      // Redirect to dashboard with search parameters
+      window.location.href = `dashboard.html?pickup=${encodeURIComponent(fromLocation)}&drop=${encodeURIComponent(toLocation)}&date=${encodeURIComponent(displayDate)}&time=${encodeURIComponent(travelTime)}&passengers=${passengers}`;
+    });
+  </script>
+
+</body>
+</html>
